@@ -1,0 +1,12 @@
+spring:
+  elasticsearch:
+    rest:
+      uris: ${ELASTICSEARCH_URI}
+      username: ${ELASTICSEARCH_USERNAME}
+      password: ${ELASTICSEARCH_PASSWORD}
+  
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+      password: ${REDIS_PASSWORD} 
