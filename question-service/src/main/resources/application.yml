@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: question-service
   data:
     mongodb:
       host: localhost

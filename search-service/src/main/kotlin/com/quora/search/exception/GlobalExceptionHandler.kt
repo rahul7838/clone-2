@@ -1,4 +1,4 @@
-package com.quora.common.exception
+package com.quora.search.exception
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: auth-service
   data:
     mongodb:
       host: localhost
@@ -9,7 +11,7 @@ spring:
       # password: your_password
 
 jwt:
-  secret: your_jwt_secret_key_which_should_be_at_least_256_bits_long
+  secret: ${JWT_SECRET:your_jwt_secret_key_which_should_be_at_least_256_bits_long}
   expiration: 86400000 # 24 hours in milliseconds
 
 server:
