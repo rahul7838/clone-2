@@ -7,8 +7,8 @@ spring:
       port: 27017
       database: quora_auth
       # authentication-database: admin
-      # username: your_username
-      # password: your_password
+      # username: ${MONGO_USERNAME}
+      # password: ${MONGO_PASSWORD}
 
 jwt:
   secret: ${JWT_SECRET:your_jwt_secret_key_which_should_be_at_least_256_bits_long}

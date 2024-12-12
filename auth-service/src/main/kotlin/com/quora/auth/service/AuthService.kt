@@ -6,6 +6,9 @@ import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
+import com.quora.auth.security.UserPrincipal
+import com.quora.auth.repository.UserRepository
+import com.quora.auth.security.JwtUtil
 
 @Service
 class AuthService(
