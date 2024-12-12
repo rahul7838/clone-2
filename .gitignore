@@ -1,0 +1,33 @@
+### Global ###
+.DS_Store
+Thumbs.db
+
+### IDE ###
+.idea/
+.vscode/
+*.sublime-*
+
+### Logs ###
+*.log
+logs/
+
+### Environment Variables ###
+.env
+.env.*
+!.env.example
+
+### Gradle ###
+.gradle/
+build/
+
+### Kotlin ###
+*.class
+*.jar
+!gradle-wrapper.jar
+
+### Docker ###
+docker-compose.override.yml
+
+### Local Configuration ###
+**/application-local.yml
+**/application-local.properties 
