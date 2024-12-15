@@ -18,6 +18,16 @@ spring:
 server:
   port: 8083
 
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    com.quora.search: DEBUG
+    org.elasticsearch: DEBUG
+    org.springframework.data.elasticsearch: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.boot.autoconfigure: DEBUG
+
 eureka:
   client:
     serviceUrl:

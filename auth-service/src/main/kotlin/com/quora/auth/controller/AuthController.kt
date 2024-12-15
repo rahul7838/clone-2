@@ -16,18 +16,18 @@ class AuthController(private val authService: AuthService) {
     
     @PostMapping("/login")
     fun login(@RequestBody credentials: LoginRequest): ResponseEntity<TokenResponse> {
-        val token = authService.login(credentials.email, credentials.password)
+        val token = authService.login(credentials.id, credentials.password)
         return ResponseEntity.ok(TokenResponse(token))
     }
     
-    @GetMapping("/me")
-    fun getCurrentUser(@RequestHeader("Authorization") token: String): ResponseEntity<User> {
-        return ResponseEntity.ok(authService.getCurrentUser(token.substring(7)))
-    }
+//    @GetMapping("/me")
+//    fun getCurrentUser(@RequestHeader("Authorization") token: String): ResponseEntity<User> {
+//        return ResponseEntity.ok(authService.getCurrentUser(token.substring(7)))
+//    }
 }
 
 data class LoginRequest(
-    val email: String,
+    val id: String,
     val password: String
 )
 

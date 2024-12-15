@@ -9,12 +9,17 @@ import org.springframework.stereotype.Service
 import com.quora.auth.security.UserPrincipal
 import com.quora.auth.repository.UserRepository
 import com.quora.auth.security.JwtUtil
+import org.springframework.security.authentication.AuthenticationManager
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.context.annotation.Lazy
+import org.springframework.data.repository.findByIdOrNull
 
 @Service
 class AuthService(
     private val userRepository: UserRepository,
     private val jwtUtil: JwtUtil,
-    private val passwordEncoder: BCryptPasswordEncoder
+    private val passwordEncoder: BCryptPasswordEncoder,
+    @Lazy private val authenticationManager: AuthenticationManager
 ) : UserDetailsService {
     
     override fun loadUserByUsername(username: String): UserDetails {
@@ -32,14 +37,16 @@ class AuthService(
         return userRepository.save(user.copy(password = hashedPassword))
     }
 
-    fun login(email: String, password: String): String {
-        val user = userRepository.findByEmail(email) 
+    fun login(id: String, password: String): String {
+        // Authenticate user
+        authenticationManager.authenticate(
+            UsernamePasswordAuthenticationToken(id, password)
+        )
+        
+        // If authentication successful, generate token
+        val user = userRepository.findByIdOrNull(id)
             ?: throw RuntimeException("User not found")
             
-        if (!passwordEncoder.matches(password, user.password)) {
-            throw RuntimeException("Invalid credentials")
-        }
-        
         return jwtUtil.generateToken(user)
     }
 } 

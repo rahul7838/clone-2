@@ -17,6 +17,16 @@ jwt:
 server:
   port: 8081
 
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    com.quora.auth: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.data.mongodb: DEBUG
+    org.springframework.boot.autoconfigure: DEBUG
+
 eureka:
   client:
     serviceUrl:

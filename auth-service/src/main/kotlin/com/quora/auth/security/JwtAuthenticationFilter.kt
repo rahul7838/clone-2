@@ -1,5 +1,6 @@
 package com.quora.auth.security
 
+import com.quora.auth.service.AuthService
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
@@ -12,7 +13,7 @@ import org.springframework.web.filter.OncePerRequestFilter
 @Component
 class JwtAuthenticationFilter(
     private val jwtUtil: JwtUtil,
-    private val userDetailsService: UserDetailsService
+    private val userDetailsService: AuthService
 ) : OncePerRequestFilter() {
 
     override fun doFilterInternal(
