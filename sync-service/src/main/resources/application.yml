@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: sync-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: quora_questions
+    elasticsearch:
+      cluster-nodes: localhost:9200
+      cluster-name: quora-cluster
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: quora-sync-group
+      auto-offset-reset: earliest
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+server:
+  port: 8084
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    com.quora.sync: DEBUG
+    io.debezium: DEBUG
+    org.apache.kafka: DEBUG
+    org.springframework.kafka: DEBUG
+    com.netflix.eureka: DEBUG
+    com.netflix.discovery: DEBUG
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true 
+
+debezium:
+  mongodb:
+    name: "mongodb-connector"
+    topic:
+      prefix: "quora"
+    connector:
+      class: "io.debezium.connector.mongodb.MongoDbConnector"
