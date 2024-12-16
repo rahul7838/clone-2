@@ -16,9 +16,10 @@ class ChangeEventHandler(
 
     fun handleChangeEvent(record: SourceRecord) {
         try {
+            logger.info("record" + record.topic() + record.toString())
             val value = record.value() as Struct
             val operation = value.getString("op")
-            val source = value.getStruct("after")
+            val source = value.getString("after")
             val collectionName = record.topic().split(".").last()
 
             val changeEvent = mapOf(

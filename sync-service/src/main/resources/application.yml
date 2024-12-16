@@ -25,12 +25,12 @@ server:
 logging:
   level:
     root: INFO
-    com.quora.sync: DEBUG
+#    com.quora.sync: DEBUG
     io.debezium: DEBUG
-    org.apache.kafka: DEBUG
-    org.springframework.kafka: DEBUG
-    com.netflix.eureka: DEBUG
-    com.netflix.discovery: DEBUG
+#    org.apache.kafka: DEBUG
+#    org.springframework.kafka: DEBUG
+#    com.netflix.eureka: DEBUG
+#    com.netflix.discovery: DEBUG
 
 eureka:
   client:
