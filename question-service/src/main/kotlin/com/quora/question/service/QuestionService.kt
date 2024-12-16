@@ -16,13 +16,13 @@ import java.time.LocalDateTime
 @Service
 class QuestionService(
     private val questionRepository: QuestionRepository,
-    private val elasticsearchTemplate: ElasticsearchTemplate
+//    private val elasticsearchTemplate: ElasticsearchTemplate
 ) {
 
     @Transactional
     fun createQuestion(question: Question): Question {
         val savedQuestion = questionRepository.save(question)
-        elasticsearchTemplate.save(savedQuestion)
+//        elasticsearchTemplate.save(savedQuestion)
         return savedQuestion
     }
 
@@ -57,7 +57,7 @@ class QuestionService(
         val savedQuestion = questionRepository.save(questionToUpdate)
         
         // Update in Elasticsearch
-        elasticsearchTemplate.save(savedQuestion)
+//        elasticsearchTemplate.save(savedQuestion)
         
         return savedQuestion
     }

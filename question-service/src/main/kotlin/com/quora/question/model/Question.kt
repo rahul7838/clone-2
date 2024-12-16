@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import org.springframework.data.elasticsearch.annotations.Document as ESDocument
 
 @Document(collection = "questions")
-@ESDocument(indexName = "questions")
+//@ESDocument(indexName = "questions")
 // @ESDocument(indexName = "questions")
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Question(
