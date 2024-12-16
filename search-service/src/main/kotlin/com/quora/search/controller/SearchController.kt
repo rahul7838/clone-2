@@ -34,13 +34,3 @@ class SearchController(private val searchService: SearchService) {
         return ResponseEntity.ok(searchService.searchAnswers(query, pageable))
     }
 }
-
-data class SearchResult(
-    val id: String,
-    val type: String, // "QUESTION" or "ANSWER"
-    val title: String?,
-    val content: String,
-    val userId: String,
-    val tags: List<String>,
-    val score: Float
-) 
