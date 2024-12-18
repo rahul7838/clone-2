@@ -25,7 +25,6 @@ dependencies {
     implementation("org.elasticsearch:elasticsearch:7.17.9")
     
     // Redis
-    implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("redis.clients:jedis")
     
     testImplementation("org.springframework.boot:spring-boot-starter-test")

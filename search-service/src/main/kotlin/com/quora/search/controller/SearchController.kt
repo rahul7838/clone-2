@@ -1,5 +1,6 @@
 package com.quora.search.controller
 
+import com.quora.search.model.SearchResult
 import com.quora.search.service.SearchService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
